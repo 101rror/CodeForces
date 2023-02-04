@@ -1,1 +1,1 @@
-CodeForces Cotests and Practice Solutions...<💻>💞
+CodeForces Contests and Practice Solutions...<💻>💞
