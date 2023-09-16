@@ -68,6 +68,7 @@ const int N = 1e6+10;
 
 #define  srt(s)   sort(s.begin(),s.end());
 #define  rsrt(s)  sort(s.rbegin(),s.rend());
+#define  rvs(s)   reverse(s.begin(), s.end());
 
 #define  signed   int32_t
 #define  long     long long
@@ -83,62 +84,39 @@ void passion()
     cin >> n;
     bool flag = false;
 
-    vector<int>vec1, vec2;
+    vector<long>vec1(n), vec2(n);
+    vector<long>res;
 
-    for(int i = 1; i <= n; i++)
+    for(auto &x : vec1)
     {
-        int x;
         cin >> x;
-        vec1.pb(x);
     }
-    for(int i = 1; i <= n; i++)
+    for(auto &x : vec2)
     {
-        int y;
-        cin >> y;
-        vec2.pb(y);
+        cin >> x;
     }
 
-    int x = 0;
-    for(int i = 1; i <= n; i++)
+    int first = 0;
+    int last = (n - 1);
+
+    while(vec1[first] == vec2[first])
     {
-        if(vec1[i] == vec2[i])
-        {
-            x++;
-        }
-        else
-        {
-            x++;
-            break;
-        }
+        first++;
+    }
+    while(vec1[last] == vec2[last])
+    {
+        last--;
+    }
+    while(first > 0 and vec2[first] >= vec2[first - 1])
+    {
+        first--;
+    }
+    while(last < (n - 1) and vec2[last] <= vec2[last + 1])
+    {
+        last++;
     }
 
-    int y = n;
-    for(int j = n; j >= 1; j--)
-    {
-        if(vec1[j] == vec2[j])
-        {
-            y--;
-        }
-        else
-        {
-            break;
-        }
-    }
-
-    long left = vec2[x];
-    while(x - 1 > 0 && vec1[x - 1] <= left)
-    {
-        x--;
-        left = vec1[x];
-    }
-
-    long right = vec2[y];
-    while(y + 1 <= n && right <= vec1[y + 1])
-    {
-        y++;
-        right = vec1[y];
-    }
-    cout<< x << ' ' << y;
+    cout << (first + 1) << " " << (last + 1);
     nl
 }
 
