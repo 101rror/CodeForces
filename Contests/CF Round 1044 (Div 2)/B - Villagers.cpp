@@ -1,3 +1,4 @@
+
 ///There is none worthy of worship except ALLAH and Muhammad(SWT) is the messenger of ALLAH.
 
 
@@ -36,36 +37,47 @@ void solution()
     long n;
     cin >> n;
 
-    vector<long>a(n), b(n);
+    vector<long>a(n);
 
     for(auto &it : a)
     {
         cin >> it;
     }
 
-    for(auto &it : b)
-    {
-        cin >> it;
-    }
+    rsrt(a)
+    long ans = 0;
 
-    for(long i = 1; i < n; i++)
+    if(n & 1)
     {
-        long x =
-    }
+        for(long i = 1; i < n - 1; i += 2)
+        {
+            long mx = max(a[i - 1], a[i]);
+            long mn = min(a[i - 1], a[i]);
 
-    for(auto it : a)
+            ans += mx;
+        }
+
+        cout << ans + a[n - 1];
+    }
+    else
     {
-        cout << it << " ";
+        for(long i = 1; i < n; i += 2)
+        {
+            long mx = max(a[i - 1], a[i]);
+            long mn = min(a[i - 1], a[i]);
+
+            ans += mx;
+        }
+
+        cout << ans;
     }
     nl
-    */
 }
 
 
 int32_t main()
 {
     FastRead
-
 
     int testCases;
     cin >> testCases;
@@ -74,7 +86,6 @@ int32_t main()
     {
         solution();
     }
-
 
     Executed
 }

@@ -36,20 +36,33 @@ void solution()
     long n;
     cin >> n;
 
-    /*
     vector<long>a(n);
+    long ans = 0;
 
     for(auto &it : a)
     {
         cin >> it;
+        ans += it;
     }
 
-    for(auto it : a)
+    ans -= (n - 1);
+
+    long x = 0, y = 0;
+
+    for (long i = 1; i < n; i++)
     {
-        cout << it << " ";
+        long mn = min(i, a[i]) - 2;
+        if (mn < 0)
+        {
+            mn = 0;
+        }
+        long mx = max(x, y + mn);
+        y = x;
+        x = mx;
     }
+
+    cout << ans - x;
     nl
-    */
 }
 
 
@@ -57,7 +70,6 @@ int32_t main()
 {
     FastRead
 
-    /*
     int testCases;
     cin >> testCases;
 
@@ -65,8 +77,6 @@ int32_t main()
     {
         solution();
     }
-    */
-
 
     Executed
 }

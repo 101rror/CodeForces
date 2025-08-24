@@ -33,37 +33,39 @@ long brr[N];
 
 void solution()
 {
-    long l1, b1, l2, b2, l3, b3;
-    cin >> l1 >> b1 >> l2 >> b2 >> l3 >> b3;
+    long n;
+    cin >> n;
 
-    long x = l1 * b1, y = l2 * b2, z = l3 * b3;
-    if(x % y != 0 || y % z != 0 || x % z != 0)
+    long ans = 0;
+    long p = 1;
+
+    for (long i = 0; n > 0; i++)
     {
-        cout << "NO";
-        nl
-        return;
+        long d = n % 3;
+        n /= 3;
+
+        if (d > 0)
+        {
+            long size = p * 3;
+            long cost = size + i * (p / 3);
+            if (i == 0)
+            {
+                cost = 3;
+            }
+            ans += cost * d;
+        }
+
+        p *= 3;
     }
 
-    long sum = x + y + z;
-    long sqt = sqrt(sum);
-
-    if(sqt * sqt == sum)
-    {
-        cout << "YES";
-        nl
-    }
-    else
-    {
-        cout << "NO";
-        nl
-    }
+    cout << ans;
+    nl
 }
 
 
 int32_t main()
 {
     FastRead
-
 
     int testCases;
     cin >> testCases;
@@ -72,7 +74,6 @@ int32_t main()
     {
         solution();
     }
-
 
     Executed
 }
