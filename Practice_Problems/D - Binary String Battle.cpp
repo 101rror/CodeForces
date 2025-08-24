@@ -1,4 +1,3 @@
-
 ///There is none worthy of worship except ALLAH and Muhammad(SWT) is the messenger of ALLAH.
 
 
@@ -20,7 +19,7 @@ using namespace std;
 #define  rsrt(s)   sort(s.rbegin(),s.rend());
 #define  rvs(s)    reverse(s.begin(), s.end());
 
-#define  unlong    unsigned long long
+#define  long      long long
 #define  fi        first
 #define  se        second
 #define  pb        push_back
@@ -34,40 +33,37 @@ long brr[N];
 
 void solution()
 {
-    unlong n;
-    cin >> n;
+    long n, k;
+    cin >> n >> k;
 
-    vector<unlong> ans;
-    unlong p = 1;
+    string s;
+    cin >> s;
 
-    for (int x = 1; x < 18; x++)
+    long one = 0;
+
+    for(auto it: s)
     {
-        unlong d = (p * 10) + 1;
-        if (d != 0 && n % d == 0)
+        if(it == '1')
         {
-            ans.pb(n / d);
-        }
-        if (x < 18)
-        {
-            p *= 10;
+            one++;
         }
     }
 
-    if (ans.empty())
+    if(one <= k)
     {
-        cout << 0;
+        cout << "Alice";
+        nl
+        return;
+    }
+
+    if(one > k && n >= 2 * k)
+    {
+        cout << "Bob";
         nl
     }
     else
     {
-        srt(ans)
-        cout << ans.size();
-        nl
-
-        for (auto it : ans)
-        {
-            cout << it << " ";
-        }
+        cout << "Alice";
         nl
     }
 }

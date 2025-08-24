@@ -31,33 +31,21 @@ long arr[N];
 long brr[N];
 
 
-
 void solution()
 {
     long n;
     cin >> n;
 
-    vector<long>a(n);
-
-    for(auto &it : a)
+    if(n <= 2 || n % 4 != 0)
     {
-        cin >> it;
+        cout << "Alice";
+        nl
     }
-
-    unordered_set<long> seen;
-    for (auto it: a)
+    else
     {
-        if (seen.count(it))
-        {
-            cout << "YES";
-            nl
-            return;
-        }
-        seen.insert(it);
+        cout << "Bob";
+        nl
     }
-
-    cout << "NO";
-    nl
 }
 
 
